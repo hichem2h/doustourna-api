@@ -3,6 +3,7 @@ dj-database-url==0.5.0
 Django==2.2
 django-cors-headers==2.5.2
 django-rest-framework==0.1.0
+django-translated-fields==0.7.3
 djangorestframework==3.9.2
 entrypoints==0.3
 flake8==3.7.7

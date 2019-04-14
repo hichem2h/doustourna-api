@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.utils.translation import ugettext_lazy as _
 from .models import Chapter, Section, Article, Question
 
 
@@ -9,7 +10,7 @@ class ArticleDetailsSerializer(serializers.ModelSerializer):
     chapter = serializers.CharField(source='section.chapter.name')
 
     def get_name(self, obj):
-        return f'المادة رقم {obj.number}'
+        return _('المادة رقم {}').format(obj.number)
 
     class Meta:
         model = Article
@@ -21,11 +22,11 @@ class ArticleSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
 
     def get_name(self, obj):
-        return f'المادة {obj.number}'
+        return _('المادة رقم {}').format(obj.number)
 
     class Meta:
         model = Article
-        fields = ('number', 'name', 'content')
+        fields = ('number', 'name', 'content', 'date')
 
 
 class SectionSerializer(serializers.ModelSerializer):
