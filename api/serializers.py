@@ -14,7 +14,7 @@ class ArticleDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = ('number', 'name', 'videoLink', 'content', 'date',
-                  'chapter', 'section')
+                  'chapter', 'section', 'description')
 
 
 class ArticleSerializer(serializers.ModelSerializer):

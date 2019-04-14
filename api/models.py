@@ -5,6 +5,7 @@ class Article(models.Model):
     number = models.PositiveIntegerField(unique=True)
     content = models.CharField(max_length=1024)
     video_link = models.URLField(max_length=128)
+    description = models.CharField(max_length=256)
     date = models.DateField()
     section = models.ForeignKey('Section', related_name='articles',
                                 on_delete=models.CASCADE)
