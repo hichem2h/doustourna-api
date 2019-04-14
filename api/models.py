@@ -18,8 +18,12 @@ class Article(models.Model):
     def __str__(self):
         return f'{self.number}'
 
+    class Meta:
+        ordering = ['number']
+
 
 class Section(models.Model):
+    number = models.PositiveIntegerField()
     name = TranslatedField(
         models.CharField(max_length=128)
     )
@@ -29,8 +33,12 @@ class Section(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+    class Meta:
+        ordering = ['number']
+
 
 class Chapter(models.Model):
+    number = models.PositiveIntegerField()
     name = TranslatedField(
         models.CharField(max_length=128)
     )
@@ -40,6 +48,9 @@ class Chapter(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    class Meta:
+        ordering = ['number']
 
 
 class Question(models.Model):
