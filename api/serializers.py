@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Chapter, Section, Article
+from .models import Chapter, Section, Article, Question
 
 
 class ArticleDetailsSerializer(serializers.ModelSerializer):
@@ -13,7 +13,8 @@ class ArticleDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-        fields = ('number', 'name', 'videoLink', 'content', 'date', 'chapter', 'section')
+        fields = ('number', 'name', 'videoLink', 'content', 'date',
+                  'chapter', 'section')
 
 
 class ArticleSerializer(serializers.ModelSerializer):
@@ -40,4 +41,12 @@ class ChapterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Chapter
-        fields = ('name', 'desciption', 'sections')
+        fields = ('name', 'description', 'sections')
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Question
+        fields = ('email', 'name', 'profession', 'question', 'answer')
+        read_only_fields = ('answer', )

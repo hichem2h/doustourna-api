@@ -24,7 +24,18 @@ class Section(models.Model):
 
 class Chapter(models.Model):
     name = models.CharField(max_length=128, unique=True)
-    desciption = models.CharField(max_length=256)
+    description = models.CharField(max_length=256)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class Question(models.Model):
+    email = models.EmailField(max_length=128)
+    name = models.CharField(max_length=256)
+    profession = models.CharField(max_length=256)
+    question = models.CharField(max_length=1024)
+    answer = models.CharField(max_length=1024, blank=True)
 
     def __str__(self):
         return f'{self.name}'
